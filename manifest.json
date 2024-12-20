@@ -1,0 +1,27 @@
+{
+    "manifest_version": 3,
+    "name": "Enhanced Reader Mode",
+    "version": "1.1", 
+    "description": "Advanced reader mode with customization options",
+    "permissions": [
+        "activeTab",
+        "storage",
+        "scripting"
+    ],
+    "host_permissions": [
+        "<all_urls>"
+    ],
+    "action": {
+        "default_title": "Enable Reader Mode"
+    },
+    "background": {
+        "service_worker": "background.js"
+    },
+    "content_scripts": [
+        {
+            "matches": ["<all_urls>"],
+            "js": ["jspdf.umd.min.js","Readability.js", "content.js"],
+            "css": ["styles.css"]
+        }
+    ]
+}
